@@ -8,6 +8,8 @@ const generateToken = (user) => {
   });
 };
 
+
+
 export const registerUser = async (req, res) => {
   const { username, email, password, role } = req.body;
   try {

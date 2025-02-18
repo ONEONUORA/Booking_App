@@ -1,0 +1,84 @@
+
+### Register User
+
+# POST http://localhost:5000/api/auth/register
+
+# Content-Type: application/json
+
+# {
+#   "username": "booking",
+#   "email": "bookinttryg@gmail.com",
+#   "password": "youyyerPassword",
+#   "role": "admin"  // Use "admin" if you want to create an admin user for testing
+# }
+
+
+### Login User
+# POST http://localhost:5000/api/auth/login
+
+# Content-Type: application/json
+
+# {
+#   "email": 'testuser@example.com',
+#   "password": 'yourPassword'
+# }
+
+
+### Create Hotel (Admin Only)
+# POST http://localhost:5000/api/hotels
+# Content-Type: application/json
+# Authorization: Bearer YOUR_ADMIN_TOKEN
+
+# {
+#   "name": "Hotel Sunshine",
+#   "type": "Resort",
+#   "city": "Miami",
+#   "adress": "123 Beach Ave",
+#   "ditance": "2 km",
+#   "photo": [],
+#   "title": "Best hotel in Miami",
+#   "rating": 4.5,
+#   "rooms": [],
+#   "desc": "A luxurious stay in Miami",
+#   "cheapestPrice": 120,
+#   "featured": true
+# }
+
+### Get All Hotels
+# GET http://localhost:5000/api/hotels
+
+
+### Create Room (Admin Only)
+# POST http://localhost:5000/api/rooms
+# Content-Type: application/json
+# Authorization: Bearer YOUR_ADMIN_TOKEN
+
+# {
+#   "title": "Deluxe Room",
+#   "price": "150",
+#   "maxPeople": "2",
+#   "desc": "A comfortable deluxe room",
+#   "roomNumbers": [
+#     { "Number": 101, "unavailable": [] },
+#     { "Number": 102, "unavailable": [] }
+#   ]
+# }
+
+### Get All Rooms
+# GET http://localhost:5000/api/rooms
+
+### Book Room (User Only)
+# POST http://localhost:5000/api/bookings
+# Content-Type: application/json
+# Authorization: Bearer YOUR_USER_TOKEN
+
+# {
+#   "roomId": "PUT_ROOM_ID_HERE",   // Replace with an actual room ID from your rooms collection
+#   "date": "2025-03-01"
+# }
+
+# Manage Tokens:
+# After you log in, copy the JWT token from the response and replace YOUR_ADMIN_TOKEN or YOUR_USER_TOKEN in the requests that require authentication.
+
+
+
