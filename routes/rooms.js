@@ -1,22 +1,11 @@
 import express from "express";
-import { createRoom, deleteRoom, getRoom, getRooms, updateRoom } from "../controllers/room.js";
-import { verifyAdmin } from "../utils/verifyToken.js";
+import { createRoom, getRooms } from "../controllers/room.js";
+import { verifyToken, verifyAdmin } from "../middlewares/authMiddleware.js";
 
 const router = express.Router();
 
+// Only an admin can create a room
+router.post("/", verifyToken, verifyAdmin, createRoom);
+router.get("/", getRooms);
 
-//crete
-router.post("/:hotelid",verifyAdmin, createRoom);
-//update
-router.put("/:id",verifyAdmin, updateRoom)
-
-
-//delete
-router.delete("/:id",verifyAdmin, deleteRoom);
-//get
-router.get("/:id", getRoom);
-//get all
-router.get("/", getRooms)
-
-
-export default router; 
+export default router;

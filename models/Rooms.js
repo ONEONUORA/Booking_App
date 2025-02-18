@@ -1,30 +1,19 @@
 import mongoose from "mongoose";
 
-
-const RoomSchema = new mongoose.Schema({
-    title: {
-        type :String,
-        require :true,
-    },
-    price: {
-        type :String,
-        require :true,
-    },
-    maxPeople: {
-        type :String,
-        require :true,
-    },
-    desc: {
-        type :String,
-        require :true,
-    },
-    roomNumbers: [{Number:Number, unavailable: [{type:[Date]}] }],
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                          
-
-},
-{timestamps:true}
+const RoomSchema = new mongoose.Schema(
+  {
+    title: { type: String, required: true },
+    price: { type: String, required: true },
+    maxPeople: { type: String, required: true },
+    desc: { type: String, required: true },
+    roomNumbers: [
+      {
+        Number: Number,
+        unavailable: { type: [Date] }
+      }
+    ]
+  },
+  { timestamps: true }
 );
 
-export default mongoose.model("Room", RoomSchema)
-
-
+export default mongoose.model("Room", RoomSchema);
